@@ -1,0 +1,68 @@
+model Image {
+    id       String     @id @unique @default(uuid())
+    url      String?    @unique
+    target   String?
+    alt      String?    @db.VarChar(50)
+    products Product[]
+    category Category[]
+}
+
+model Icon {
+    id              String    @id @unique @default(uuid())
+    name            String
+    svg             String
+    category        Category?
+    navlink         NavLink?  @relation(fields: [navLinkCodename], references: [codename])
+    navLinkCodename String?   @unique
+}
+
+model Pages {
+    id         String      @id @unique @default(uuid())
+    title      String
+    components Component[]
+    slug       String[]
+}
+
+model Dictionary {
+    codename   String      @id @unique @default(uuid())
+    value      String
+    components Component[]
+}
+
+enum Methods {
+    POST
+    GET
+    PUT
+    DELETE
+    HEAD
+    CONNECT
+    OPTIONS
+    TRACE
+    PATCH
+}
+
+model Request {
+    id         String      @id @unique @default(uuid())
+    method     Methods
+    slug       String
+    components Component[]
+}
+
+model NavLink {
+    codename   String      @id @unique @default(uuid())
+    title      String
+    url        String
+    target     String
+    rel        String
+    components Component[]
+    Icon       Icon?
+}
+
+model Component {
+    codename     String       @id @unique @default(uuid())
+    dictionaries Dictionary[]
+    title        String
+    navlinks     NavLink[]
+    requests     Request[]
+    pages        Pages[]
+}

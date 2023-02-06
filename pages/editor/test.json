@@ -1,0 +1,44 @@
+{
+  "pages": [
+    {
+      "id": 1,
+      "title": "home",
+      "components": [    {
+        "codename": "ui_button",
+        "dictionaries": ["",""],
+        "title": "button",
+        "navlinks": [],
+        "requests": ["",""]
+      },    {
+        "codename": "ui_button1",
+        "dictionaries": ["",""],
+        "title": "button1",
+        "navlinks": [],
+        "requests": ["",""]
+      }],
+      "slug": ["home"]
+    },
+    {
+      "id": 2,
+      "title": "menu",
+      "components": [],
+      "slug": ["test","menu"]
+    }
+  ],
+  "components": [
+    {
+      "codename": "ui_button",
+      "dictionaries": ["",""],
+      "title": "button",
+      "navlinks": [],
+      "requests": ["",""]
+    },
+    {
+      "codename": "ui_button",
+      "dictionaries": 2,
+      "title": "button",
+      "navlinks": [],
+      "requests": ["",""]
+    }
+  ]
+}
